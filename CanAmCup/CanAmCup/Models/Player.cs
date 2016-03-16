@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace CanAmCup.Models
 {
-  public class Player
+  public class Player 
   {
+    [Key]
     public int Id { get; set; }
     [Display(Name = "First Name")]
     public string FirstName { get; set; }

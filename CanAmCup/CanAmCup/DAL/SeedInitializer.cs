@@ -6,36 +6,68 @@ using CanAmCup.Models;
 
 namespace CanAmCup.DAL
 {
-  public class SeedInitializer : DropCreateDatabaseIfModelChanges<CanAmContext>
+  public class SeedInitializer : CreateDatabaseIfNotExists<CanAmContext>
+  //CreateDatabaseIfNotExists (default)
+  //DropCreateDatabaseIfModelChanges
+  //DropCreateDatabaseAlways
   {
+
     protected override void Seed(CanAmContext context)
     {
-      var players = new List<Player>
+
+      var tournaments = new List<Tournament>
             {
-              new Player{FirstName="Jon",LastName="Kerr", Email="kerrjon@yahoo.com", Phone = "612-356-7478", Country = Country.CDN, City = "Yorkton", State = "SK"},
-              new Player{FirstName="Todd",LastName="Kelzenberg", Email="kelzenberg@gmail.com", Phone = "612-850-9893", Country = Country.USA, City = "Blaine", State = "MN"}
+            new Tournament{StartDateTime = DateTime.UtcNow, Winner = Country.CDN, Year = "2014"},
+            new Tournament{StartDateTime = DateTime.UtcNow, Winner = Country.CDN, Year = "2015"},
+            new Tournament{StartDateTime = DateTime.UtcNow, Winner = null, Year = "2016"}
             };
-      players.ForEach(s => context.Players.Add(s));
+      foreach (var tournament in tournaments)
+        context.Tournaments.Add(tournament);
       context.SaveChanges();
 
-      var course = new List<Course>
+      var courses = new List<Course>
             {
-            new Course{Location = "Mankato, MN", Name = "Terrace View"},
-            new Course{Location = "Mankato, MN", Name = "North Links"}
+            new Course{Location = "Mankato, MN", Name = "Terrace View Front 9"},
+            new Course{Location = "Mankato, MN", Name = "Terrace View Back 9"},
+            new Course{Location = "Mankato, MN", Name = "Terrace View 18"},
+            new Course{Location = "Mankato, MN", Name = "North Links Front 9"},
+            new Course{Location = "Mankato, MN", Name = "North Links Back 9"},
+            new Course{Location = "Mankato, MN", Name = "North Links 18"}
             };
-      course.ForEach(s => context.Courses.Add(s));
+      courses.ForEach(s => context.Courses.Add(s));
       context.SaveChanges();
 
-      var matchSummary = new List<Tournament>
+
+      var holes = new List<Hole>
             {
-            new Tournament{StartDateTime = DateTime.UtcNow, CdnScore = 3, UsaScore = 5.5, PointsAvailable = 3, Winner = Country.CDN, Year = "2014"},
-            new Tournament{StartDateTime = DateTime.UtcNow, CdnScore = 4, UsaScore = 2, PointsAvailable = 1, Winner = Country.CDN, Year = "2015"},
-            new Tournament{StartDateTime = DateTime.UtcNow, CdnScore = 0, UsaScore = 0, PointsAvailable = null, Winner = null, Year = "2016"}
-            };
-      matchSummary.ForEach(s => context.Tournaments.Add(s));
+            new Hole{CourseId = courses.Single(s => s.Name == "Terrace View Front 9").CourseId , HoleNumber = 1},
+            new Hole{CourseId = courses.Single(s => s.Name == "Terrace View Front 9").CourseId , HoleNumber = 2},
+            new Hole{CourseId = courses.Single(s => s.Name == "Terrace View Front 9").CourseId , HoleNumber = 3},
+            new Hole{CourseId = courses.Single(s => s.Name == "Terrace View Front 9").CourseId , HoleNumber = 4},
+            new Hole{CourseId = courses.Single(s => s.Name == "Terrace View Front 9").CourseId , HoleNumber = 5},
+            new Hole{CourseId = courses.Single(s => s.Name == "Terrace View Front 9").CourseId , HoleNumber = 6},
+            new Hole{CourseId = courses.Single(s => s.Name == "Terrace View Front 9").CourseId , HoleNumber = 7},
+            new Hole{CourseId = courses.Single(s => s.Name == "Terrace View Front 9").CourseId , HoleNumber = 8},
+            new Hole{CourseId = courses.Single(s => s.Name == "Terrace View Front 9").CourseId , HoleNumber = 9},
+      };
+      holes.ForEach(s => context.Holes.Add(s));
       context.SaveChanges();
 
-      
+
+      // for weak entities
+      //foreach (Enrollment e in enrollments)
+      //{
+      //  var enrollmentInDataBase = context.Enrollments.Where(
+      //      s =>
+      //           s.Student.ID == e.StudentID &&
+      //           s.Course.CourseID == e.CourseID).SingleOrDefault();
+      //  if (enrollmentInDataBase == null)
+      //  {
+      //    context.Enrollments.Add(e);
+      //  }
+      //}
+      //context.SaveChanges();
+
     }
   }
 }

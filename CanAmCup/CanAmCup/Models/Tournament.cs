@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace CanAmCup.Models
 {
@@ -8,11 +9,8 @@ namespace CanAmCup.Models
     public int TournamentId { get; set; }
     public string Year { get; set; }
     public DateTime StartDateTime { get; set; }
-    public double UsaScore { get; set; }
-    public double CdnScore { get; set; }
-    public double? PointsAvailable { get; set; }
     public Country? Winner { get; set; }
 
-    public virtual ICollection<Match> Matches { get; set; }
+    //public virtual ICollection<Match> Matches { get; set; }
   }
 }

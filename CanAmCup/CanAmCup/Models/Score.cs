@@ -1,8 +1,11 @@
 ﻿
+using System.ComponentModel.DataAnnotations;
+
 namespace CanAmCup.Models
 {
   public class Score
   {
+    [Key]
     public int ScoreId { get; set; }
     public int MatchId { get; set; }
     public int HoleId { get; set; }
