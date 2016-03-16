@@ -68,7 +68,6 @@ namespace CanAmCup.DAL
             {
             new Match
             {
-              CourseId = courses.Single(s => s.Name == "Terrace View Front 9").CourseId , 
               TournamentId = tournaments.Single(s => s.Year == "2015").TournamentId,
               MatchType = MatchType.Scramble,
               PointsAvailable = 10,
@@ -85,15 +84,13 @@ namespace CanAmCup.DAL
             {
             new Score
             {
-              MatchId = matches.Single(s => s.CourseId == courses.Single(c => c.Name == "Terrace View Front 9").CourseId
-                                         && s.TournamentId == tournaments.Single(t => t.Year == "2015").TournamentId).MatchId ,
+              MatchId = matches.Single(s => s.TournamentId == tournaments.Single(t => t.Year == "2015").TournamentId).MatchId ,
               HoleId = holes.Single(s => s.CourseId == courses.Single(c => c.Name == "Terrace View Front 9").CourseId && s.HoleNumber == 1).HoleId,
               HoleWinner = Country.None
             },
             new Score
             {
-              MatchId = matches.Single(s => s.CourseId == courses.Single(c => c.Name == "Terrace View Front 9").CourseId
-                                         && s.TournamentId == tournaments.Single(t => t.Year == "2015").TournamentId).MatchId ,
+              MatchId = matches.Single(s => s.TournamentId == tournaments.Single(t => t.Year == "2015").TournamentId).MatchId ,
               HoleId = holes.Single(s => s.CourseId == courses.Single(c => c.Name == "Terrace View Front 9").CourseId && s.HoleNumber == 2).HoleId,
               HoleWinner = Country.CDN
             }
@@ -105,26 +102,22 @@ namespace CanAmCup.DAL
             {
             new MatchPlayer
             {
-              MatchId = matches.Single(s => s.CourseId == courses.Single(c => c.Name == "Terrace View Front 9").CourseId
-                                         && s.TournamentId == tournaments.Single(t => t.Year == "2015").TournamentId).MatchId ,
+              MatchId = matches.Single(s => s.TournamentId == tournaments.Single(t => t.Year == "2015").TournamentId).MatchId ,
               PlayerId = players.Single(p => p.LastName == "Kerr").Id
             },
             new MatchPlayer
             {
-              MatchId = matches.Single(s => s.CourseId == courses.Single(c => c.Name == "Terrace View Front 9").CourseId
-                                         && s.TournamentId == tournaments.Single(t => t.Year == "2015").TournamentId).MatchId ,
+              MatchId = matches.Single(s => s.TournamentId == tournaments.Single(t => t.Year == "2015").TournamentId).MatchId ,
               PlayerId = players.Single(p => p.LastName == "Zacharias").Id
             },
             new MatchPlayer
             {
-              MatchId = matches.Single(s => s.CourseId == courses.Single(c => c.Name == "Terrace View Front 9").CourseId
-                                         && s.TournamentId == tournaments.Single(t => t.Year == "2015").TournamentId).MatchId ,
+              MatchId = matches.Single(s => s.TournamentId == tournaments.Single(t => t.Year == "2015").TournamentId).MatchId ,
               PlayerId = players.Single(p => p.LastName == "Kelzenberg").Id
             },
             new MatchPlayer
             {
-              MatchId = matches.Single(s => s.CourseId == courses.Single(c => c.Name == "Terrace View Front 9").CourseId
-                                         && s.TournamentId == tournaments.Single(t => t.Year == "2015").TournamentId).MatchId ,
+              MatchId = matches.Single(s => s.TournamentId == tournaments.Single(t => t.Year == "2015").TournamentId).MatchId ,
               PlayerId = players.Single(p => p.LastName == "Anderson").Id
             },
       };

@@ -21,48 +21,7 @@ namespace CanAmCup.DAL
 
     protected override void OnModelCreating(DbModelBuilder modelBuilder)
     {
-
       modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-
-      modelBuilder.Entity<Score>().HasKey(x => new { x.HoleId, x.MatchId });
-      modelBuilder.Entity<Score>()
-               .HasRequired(t => t.Holes)
-               .WithMany()
-               .HasForeignKey(c => c.HoleId)
-               .WillCascadeOnDelete(false);
-
-      modelBuilder.Entity<Score>()
-               .HasRequired(t => t.Matches)
-               .WithMany()
-               .HasForeignKey(c => c.MatchId)
-               .WillCascadeOnDelete(false);
-
-      modelBuilder.Entity<MatchPlayer>().HasKey(x => new { x.MatchId, x.PlayerId });
-      modelBuilder.Entity<MatchPlayer>()
-               .HasRequired(t => t.Matches)
-               .WithMany()
-               .HasForeignKey(c => c.MatchId)
-               .WillCascadeOnDelete(false);
-
-      modelBuilder.Entity<MatchPlayer>()
-               .HasRequired(t => t.Players)
-               .WithMany()
-               .HasForeignKey(c => c.PlayerId)
-               .WillCascadeOnDelete(false);
-
-
-      //modelBuilder.Entity<MatchPlayer>().HasKey(x => new { x.MatchId, x.PlayerId });
-
-      //  modelBuilder.Entity<Match>()
-      //           .HasRequired(a => a.Course)
-      //           .WithMany()
-      //           .HasForeignKey(u => u.CourseId);
-
-      //  modelBuilder.Entity<Match>()
-      //           .HasRequired(a => a.Tournament)
-      //           .WithMany()
-      //           .HasForeignKey(u => u.TournamentId);
-      //}
     }
   }
 }
