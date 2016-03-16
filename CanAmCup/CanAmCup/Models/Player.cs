@@ -22,7 +22,7 @@ namespace CanAmCup.Models
     public string City { get; set; }
     public string State { get; set; }
 
-    //public virtual ICollection<MatchPlayer> MatchPlayers { get;set; }
+    public virtual ICollection<MatchPlayer> MatchPlayers { get;set; }
   }
 
   public enum Country

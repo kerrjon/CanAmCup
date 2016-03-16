@@ -17,8 +17,8 @@ namespace CanAmCup.Models
     public double TeamCdnPointsWon { get; set; }
     public double TeamUsaPointsWon { get; set; }
 
-    //public virtual ICollection<Score> Scores { get; set; }
-    //public virtual ICollection<MatchPlayer> MatchPlayers { get; set; }
+    public virtual ICollection<Score> Scores { get; set; }
+    public virtual ICollection<MatchPlayer> MatchPlayers { get; set; }
 
     public virtual Course Course { get; set; }
     public virtual Tournament Tournament { get; set; }

@@ -81,21 +81,55 @@ namespace CanAmCup.DAL
       matches.ForEach(s => context.Matches.Add(s));
       context.SaveChanges();
 
+      var scores = new List<Score>
+            {
+            new Score
+            {
+              MatchId = matches.Single(s => s.CourseId == courses.Single(c => c.Name == "Terrace View Front 9").CourseId
+                                         && s.TournamentId == tournaments.Single(t => t.Year == "2015").TournamentId).MatchId ,
+              HoleId = holes.Single(s => s.CourseId == courses.Single(c => c.Name == "Terrace View Front 9").CourseId && s.HoleNumber == 1).HoleId,
+              HoleWinner = Country.None
+            },
+            new Score
+            {
+              MatchId = matches.Single(s => s.CourseId == courses.Single(c => c.Name == "Terrace View Front 9").CourseId
+                                         && s.TournamentId == tournaments.Single(t => t.Year == "2015").TournamentId).MatchId ,
+              HoleId = holes.Single(s => s.CourseId == courses.Single(c => c.Name == "Terrace View Front 9").CourseId && s.HoleNumber == 2).HoleId,
+              HoleWinner = Country.CDN
+            }
+      };
+      scores.ForEach(s => context.Scores.Add(s));
+      context.SaveChanges();
 
-      // for weak entities
-      //foreach (Enrollment e in enrollments)
-      //{
-      //  var enrollmentInDataBase = context.Enrollments.Where(
-      //      s =>
-      //           s.Student.ID == e.StudentID &&
-      //           s.Course.CourseID == e.CourseID).SingleOrDefault();
-      //  if (enrollmentInDataBase == null)
-      //  {
-      //    context.Enrollments.Add(e);
-      //  }
-      //}
-      //context.SaveChanges();
-
+      var matchPlayers = new List<MatchPlayer>
+            {
+            new MatchPlayer
+            {
+              MatchId = matches.Single(s => s.CourseId == courses.Single(c => c.Name == "Terrace View Front 9").CourseId
+                                         && s.TournamentId == tournaments.Single(t => t.Year == "2015").TournamentId).MatchId ,
+              PlayerId = players.Single(p => p.LastName == "Kerr").Id
+            },
+            new MatchPlayer
+            {
+              MatchId = matches.Single(s => s.CourseId == courses.Single(c => c.Name == "Terrace View Front 9").CourseId
+                                         && s.TournamentId == tournaments.Single(t => t.Year == "2015").TournamentId).MatchId ,
+              PlayerId = players.Single(p => p.LastName == "Zacharias").Id
+            },
+            new MatchPlayer
+            {
+              MatchId = matches.Single(s => s.CourseId == courses.Single(c => c.Name == "Terrace View Front 9").CourseId
+                                         && s.TournamentId == tournaments.Single(t => t.Year == "2015").TournamentId).MatchId ,
+              PlayerId = players.Single(p => p.LastName == "Kelzenberg").Id
+            },
+            new MatchPlayer
+            {
+              MatchId = matches.Single(s => s.CourseId == courses.Single(c => c.Name == "Terrace View Front 9").CourseId
+                                         && s.TournamentId == tournaments.Single(t => t.Year == "2015").TournamentId).MatchId ,
+              PlayerId = players.Single(p => p.LastName == "Anderson").Id
+            },
+      };
+      matchPlayers.ForEach(s => context.MatchPlayers.Add(s));
+      context.SaveChanges();
     }
   }
 }

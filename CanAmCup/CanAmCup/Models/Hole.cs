@@ -10,6 +10,6 @@ namespace CanAmCup.Models
     public int CourseId { get; set; }
 
     public virtual Course Course { get; set; }
-    //public virtual ICollection<Score> Scores { get; set; }
+    public virtual ICollection<Score> Scores { get; set; }
   }
 }
