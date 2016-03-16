@@ -47,7 +47,7 @@ namespace CanAmCup.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TournamentId,Year,StartDateTime,Winner")] Tournament tournament)
+        public ActionResult Create([Bind(Include = "TournamentId,Year,StartDateTime,Champion")] Tournament tournament)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace CanAmCup.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TournamentId,Year,StartDateTime,Winner")] Tournament tournament)
+        public ActionResult Edit([Bind(Include = "TournamentId,Year,StartDateTime,Champion")] Tournament tournament)
         {
             if (ModelState.IsValid)
             {
