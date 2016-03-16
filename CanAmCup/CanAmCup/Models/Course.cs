@@ -11,6 +11,6 @@ namespace CanAmCup.Models
     public string NumberOfHoles { get; set; }
 
     public virtual ICollection<Hole> Holes { get; set; }
-    //public virtual ICollection<Match> Matches { get; set; }
+    public virtual ICollection<Match> Matches { get; set; }
   }
 }

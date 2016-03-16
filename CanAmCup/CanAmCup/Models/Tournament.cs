@@ -11,6 +11,6 @@ namespace CanAmCup.Models
     public DateTime StartDateTime { get; set; }
     public Country? Winner { get; set; }
 
-    //public virtual ICollection<Match> Matches { get; set; }
+    public virtual ICollection<Match> Matches { get; set; }
   }
 }

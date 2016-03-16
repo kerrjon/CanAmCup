@@ -25,6 +25,17 @@ namespace CanAmCup.DAL
         context.Tournaments.Add(tournament);
       context.SaveChanges();
 
+      var players = new List<Player>
+            {
+            new Player{FirstName = "Jon", LastName = "Kerr", Country = Country.CDN, Email = "kerrjon@yahoo.com"},
+            new Player{FirstName = "Mark", LastName = "Zacharias", Country = Country.CDN},
+            new Player{FirstName = "Peter", LastName = "Holoien", Country = Country.CDN},
+            new Player{FirstName = "Todd", LastName = "Kelzenberg", Country = Country.USA},
+            new Player{FirstName = "BJ", LastName = "Anderson", Country = Country.USA}
+            };
+      players.ForEach(s => context.Players.Add(s));
+      context.SaveChanges();
+
       var courses = new List<Course>
             {
             new Course{Location = "Mankato, MN", Name = "Terrace View Front 9"},
@@ -48,9 +59,26 @@ namespace CanAmCup.DAL
             new Hole{CourseId = courses.Single(s => s.Name == "Terrace View Front 9").CourseId , HoleNumber = 6},
             new Hole{CourseId = courses.Single(s => s.Name == "Terrace View Front 9").CourseId , HoleNumber = 7},
             new Hole{CourseId = courses.Single(s => s.Name == "Terrace View Front 9").CourseId , HoleNumber = 8},
-            new Hole{CourseId = courses.Single(s => s.Name == "Terrace View Front 9").CourseId , HoleNumber = 9},
+            new Hole{CourseId = courses.Single(s => s.Name == "Terrace View Front 9").CourseId , HoleNumber = 9}
       };
       holes.ForEach(s => context.Holes.Add(s));
+      context.SaveChanges();
+
+      var matches = new List<Match>
+            {
+            new Match
+            {
+              CourseId = courses.Single(s => s.Name == "Terrace View Front 9").CourseId , 
+              TournamentId = tournaments.Single(s => s.Year == "2015").TournamentId,
+              MatchType = MatchType.Scramble,
+              PointsAvailable = 10,
+              TeamCdnPointsWon = 0,
+              TeamUsaPointsWon = 0,
+              MatchWinner = Country.None,
+              StartDateTime = DateTime.UtcNow,
+            }
+      };
+      matches.ForEach(s => context.Matches.Add(s));
       context.SaveChanges();
 
 

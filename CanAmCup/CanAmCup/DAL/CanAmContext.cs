@@ -12,9 +12,9 @@ namespace CanAmCup.DAL
     }
 
     public DbSet<Tournament> Tournaments { get; set; }
-    //public DbSet<Player> Players { get; set; }
+    public DbSet<Player> Players { get; set; }
     //public DbSet<MatchPlayer> MatchPlayers { get; set; }
-    //public DbSet<Match> Matches { get; set; }
+    public DbSet<Match> Matches { get; set; }
     public DbSet<Course> Courses { get; set; }
     public DbSet<Hole> Holes { get; set; }
     //public DbSet<Score> Scores { get; set; }
