@@ -6,6 +6,7 @@ namespace CanAmCup.Models
   public class Hole
   {
     public int HoleId { get; set; }
+    [Display(Name = "Hole")]
     public int HoleNumber { get; set; }
     public int CourseId { get; set; }
 

@@ -9,6 +9,7 @@ namespace CanAmCup.Models
     public int MatchId { get; set; }
     [Key, Column(Order = 1)]
     public int HoleId { get; set; }
+    [Display(Name = "Hole Winner")]
     public Country? HoleWinner { get; set; }
 
     public virtual Hole Holes { get; set; }

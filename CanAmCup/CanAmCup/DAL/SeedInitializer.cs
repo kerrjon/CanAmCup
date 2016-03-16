@@ -17,9 +17,9 @@ namespace CanAmCup.DAL
 
       var tournaments = new List<Tournament>
             {
-            new Tournament{StartDateTime = DateTime.UtcNow, Winner = Country.CDN, Year = "2014"},
-            new Tournament{StartDateTime = DateTime.UtcNow, Winner = Country.CDN, Year = "2015"},
-            new Tournament{StartDateTime = DateTime.UtcNow, Winner = null, Year = "2016"}
+            new Tournament{StartDateTime = DateTime.UtcNow, Champion = Country.CDN, Year = "2014"},
+            new Tournament{StartDateTime = DateTime.UtcNow, Champion = Country.CDN, Year = "2015"},
+            new Tournament{StartDateTime = DateTime.UtcNow, Champion = null, Year = "2016"}
             };
       foreach (var tournament in tournaments)
         context.Tournaments.Add(tournament);
@@ -38,12 +38,12 @@ namespace CanAmCup.DAL
 
       var courses = new List<Course>
             {
-            new Course{Location = "Mankato, MN", Name = "Terrace View Front 9"},
-            new Course{Location = "Mankato, MN", Name = "Terrace View Back 9"},
-            new Course{Location = "Mankato, MN", Name = "Terrace View 18"},
-            new Course{Location = "Mankato, MN", Name = "North Links Front 9"},
-            new Course{Location = "Mankato, MN", Name = "North Links Back 9"},
-            new Course{Location = "Mankato, MN", Name = "North Links 18"}
+            new Course{Location = "Mankato, MN", Name = "Terrace View Front 9", CourseLength = 9},
+            new Course{Location = "Mankato, MN", Name = "Terrace View Back 9", CourseLength = 9},
+            new Course{Location = "Mankato, MN", Name = "Terrace View 18", CourseLength = 18},
+            new Course{Location = "Mankato, MN", Name = "North Links Front 9", CourseLength = 9},
+            new Course{Location = "Mankato, MN", Name = "North Links Back 9", CourseLength = 9},
+            new Course{Location = "Mankato, MN", Name = "North Links 18", CourseLength = 18}
             };
       courses.ForEach(s => context.Courses.Add(s));
       context.SaveChanges();
