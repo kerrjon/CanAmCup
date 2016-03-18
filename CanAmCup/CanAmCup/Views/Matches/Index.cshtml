@@ -1,0 +1,75 @@
+﻿@model IEnumerable<CanAmCup.Models.Match>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Tournament.Year)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MatchWinner)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartDateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MatchType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PointsAvailable)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TeamCdnPointsWon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TeamUsaPointsWon)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tournament.Year)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MatchWinner)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartDateTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MatchType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PointsAvailable)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TeamCdnPointsWon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TeamUsaPointsWon)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MatchId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MatchId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MatchId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,82 @@
+﻿@model CanAmCup.Models.Match
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Match</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Tournament.Year)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tournament.Year)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MatchWinner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MatchWinner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MatchType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MatchType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PointsAvailable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PointsAvailable)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeamCdnPointsWon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeamCdnPointsWon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeamUsaPointsWon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeamUsaPointsWon)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MatchId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
